@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Create a LogStore
+        let logStore = LogStore()
+        
+        // Access LogsViewController and set its logStore
+        let logsController = window!.rootViewController as! LogsViewController
+        logsController.logStore = logStore
+        
         return true
     }
 

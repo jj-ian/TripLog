@@ -15,12 +15,12 @@ class Log: NSObject {
     var endTime: NSDate
     var timeElapsed: NSTimeInterval
     
-    init(startAddress: String, endAddress: String, startTime: NSDate, endTime: NSDate, timeElapsed: NSTimeInterval) {
+    init(startAddress: String, endAddress: String, startTime: NSDate, endTime: NSDate) {
         self.startAddress = startAddress
         self.endAddress = endAddress
         self.startTime = startTime
         self.endTime = endTime
-        self.timeElapsed = timeElapsed
+        self.timeElapsed = endTime.timeIntervalSinceDate(startTime)
         
         super.init()
     }
