@@ -14,6 +14,7 @@
 		C3A6718B1C9654D5009B91BF /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A6718A1C9654D5009B91BF /* LogsViewController.swift */; };
 		C3A6718D1C9658A1009B91BF /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A6718C1C9658A1009B91BF /* Log.swift */; };
 		C3A6718F1C965FFA009B91BF /* LogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A6718E1C965FFA009B91BF /* LogStore.swift */; };
+		C3D0F5671C979EF2002A8463 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D0F5661C979EF1002A8463 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C3A6718A1C9654D5009B91BF /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
 		C3A6718C1C9658A1009B91BF /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C3A6718E1C965FFA009B91BF /* LogStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogStore.swift; path = Model/LogStore.swift; sourceTree = "<group>"; };
+		C3D0F5661C979EF1002A8463 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D0F5671C979EF2002A8463 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,7 @@
 		C3A6716C1C965432009B91BF = {
 			isa = PBXGroup;
 			children = (
+				C3D0F5661C979EF1002A8463 /* CoreLocation.framework */,
 				C3A671771C965432009B91BF /* TripLog */,
 				C3A671761C965432009B91BF /* Products */,
 			);
@@ -102,6 +106,11 @@
 				TargetAttributes = {
 					C3A671741C965432009B91BF = {
 						CreatedOnToolsVersion = 7.2.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -292,6 +301,7 @@
 				C3A671891C965432009B91BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,25 +7,98 @@
 //
 
 import UIKit
+import CoreLocation
 
-class LogsViewController: UITableViewController {
+class LogsViewController: UITableViewController, CLLocationManagerDelegate {
     
     var logStore: LogStore!
+    
+    var locationManager: CLLocationManager?
+    var oldLocation: Location
+    var newLocation: Location
+    var oldTime: NSDate
+    var newTime: NSDate
+    var timer: NSTimer
 
+    //var deviceIsStill: Bool
+    var deviceStillStartTime: NSDate
+
+    
+    
+    
+    
+    @IBAction func toggleTripLoggingMode(sender: AnyObject) {
+        
+        // if turned on
+        self
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewdidload")
 
+        // get height of status bar
+        let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
+        
+        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = insets
+        tableView.scrollIndicatorInsets = insets
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func eachClockTick() {
+        // will be called once per clock tick
+        // put old newlocation into oldlocation
+        // put old newtime into oldtime
+        //get a new location
+        // store in newlocation
+        //get a new time
+        // store in newtime
+        
+        // calculate speed
+        // if speed is 0, check it against deviceStillStartTime to see how long it's been still, reset devieStillStartTime accordingly
+        //if deviceStillStartTiem
+
+        
+    }
+    
+    func startLocationUpdates() {
+        if locationManager == nil {
+           locationManager = CLLocationManager()
+        }
+        
+        locationManager?.delegate = self;
+        // we don't need to be at best accuracy because we just need to test if someone's at car speed or not
+        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager?.activityType = CLActivityType.AutomotiveNavigation
+        
+        // Movement threshold for new events
+        locationManager?.distanceFilter = 20
+        
+        locationManager?.startUpdatingLocation()
+        
+        
     }
 
     // MARK: - Table view data source
@@ -43,8 +116,9 @@ class LogsViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Create instance of UITableViewCell with default appearance
-        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "UITableViewCell")
+        
+        // Get a new or recycled cell
+        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
 
         // Set text on the cell with the description of the log that's at the nth index of logs, where n = row this cell will appear in on the tableview
         let log = logStore.allLogs[indexPath.row]
@@ -61,6 +135,10 @@ class LogsViewController: UITableViewController {
         let timeElapsedMin = Int(round((seconds % 3600) / 60));
         
         cell.detailTextLabel?.text = formatter.stringFromDate(log.startTime) + " - " + formatter.stringFromDate(log.endTime) + " (" + String(timeElapsedMin) + "min)"
+        
+        cell.imageView?.image = UIImage(named: "icon_car.png")
+        
+        
         return cell
     }
     
