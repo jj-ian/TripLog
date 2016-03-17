@@ -26,60 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TripLog/Singletons/TripManager.swift"
-            timestampString = "479886483.353179"
+            timestampString = "479891647.740251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "checkPosition()"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_CB5D92353F744C1EA925FFFFAA25D75B_func3"
-                  moduleName = "TripLog"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/juliechien/Dropbox/Julie/Jobs/2016/Lyft/TripLog/TripLog/TripLog/Singletons/TripManager.swift"
-                  timestampString = "479883943.063167"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TripLog.TripManager.sharedManager.unsafeMutableAddressor : TripLog.TripManager"
-                  moduleName = "TripLog"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/juliechien/Dropbox/Julie/Jobs/2016/Lyft/TripLog/TripLog/TripLog/Singletons/TripManager.swift"
-                  timestampString = "479883943.328175"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static TripLog.TripManager.sharedManager.getter : TripLog.TripManager"
-                  moduleName = "TripLog"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/juliechien/Dropbox/Julie/Jobs/2016/Lyft/TripLog/TripLog/TripLog/Singletons/TripManager.swift"
-                  timestampString = "479883943.329226"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
