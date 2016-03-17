@@ -24,5 +24,7 @@ class Log: NSObject {
         
         super.init()
     }
+    
+    
 
 }

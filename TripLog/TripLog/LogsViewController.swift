@@ -8,32 +8,18 @@
 
 import UIKit
 import CoreLocation
+//import CoreData
 
 class LogsViewController: UITableViewController, CLLocationManagerDelegate {
     
     var logStore: LogStore!
     
-    var locationManager: CLLocationManager?
-    var oldLocation: Location
-    var newLocation: Location
-    var oldTime: NSDate
-    var newTime: NSDate
-    var timer: NSTimer
-
-    //var deviceIsStill: Bool
-    var deviceStillStartTime: NSDate
-
-    
-    
-    
-    
     @IBAction func toggleTripLoggingMode(sender: AnyObject) {
         
         // if turned on
-        self
-        
+        //self
+       
     }
-    
     
     
     override func viewDidLoad() {
@@ -46,6 +32,8 @@ class LogsViewController: UITableViewController, CLLocationManagerDelegate {
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
         
+        TripManager.sharedManager.viewController = self
+        TripManager.sharedManager.startLogging()
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -59,7 +47,7 @@ class LogsViewController: UITableViewController, CLLocationManagerDelegate {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        timer.invalidate()
+       // timer.invalidate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,39 +55,12 @@ class LogsViewController: UITableViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func eachClockTick() {
-        // will be called once per clock tick
-        // put old newlocation into oldlocation
-        // put old newtime into oldtime
-        //get a new location
-        // store in newlocation
-        //get a new time
-        // store in newtime
-        
-        // calculate speed
-        // if speed is 0, check it against deviceStillStartTime to see how long it's been still, reset devieStillStartTime accordingly
-        //if deviceStillStartTiem
-
-        
+    func addCompletedTrip(newLog: Log) {
+        self.logStore.addLog(newLog)
+        tableView.reloadData()
     }
     
-    func startLocationUpdates() {
-        if locationManager == nil {
-           locationManager = CLLocationManager()
-        }
-        
-        locationManager?.delegate = self;
-        // we don't need to be at best accuracy because we just need to test if someone's at car speed or not
-        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager?.activityType = CLActivityType.AutomotiveNavigation
-        
-        // Movement threshold for new events
-        locationManager?.distanceFilter = 20
-        
-        locationManager?.startUpdatingLocation()
-        
-        
-    }
+
 
     // MARK: - Table view data source
 /*
