@@ -1,2 +1,2 @@
 # TripLog
-Automatically logs trips and addresses
+Automatically logs car trips along with their durations and starting/ending addresses.
