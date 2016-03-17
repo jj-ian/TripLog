@@ -11,7 +11,7 @@ import CoreLocation
 private let _sharedTripManger = TripManager()
 
 let tripStartThresholdMetersPerSec = 4.4704 // 4.4704 meters/sec, which is 10 mph
-let stillnessThresholdSec = 5.0 // seconds that must pass between location updates for user to be marked as still
+let stillnessThresholdSec = 60.0 // seconds that must pass between location updates for user to be marked as still
 
 class TripManager: NSObject, CLLocationManagerDelegate {
     weak var viewController: LogsViewController?
